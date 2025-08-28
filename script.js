@@ -56,14 +56,18 @@ heartVisualAndClick("heartVisual", "heart9");
 
 /* copy reuseable function for copy visualization element and copy buttons click */
 
-function copyVisualAndClick(copyVisualId, copyClickId) {
+function copyVisualAndClick(copyVisualId, copyClickId, callNumberId) {
   // copy counter visualizing element target
   const copyVisualElement = document.getElementById(copyVisualId);
 
   // copy text button element target
   const copyClickButton = document.getElementById(copyClickId);
+  // copy text button element target
+  const callNumberElement = document.getElementById(callNumberId);
+  const callNumberText = callNumberElement.innerText;
 
   copyClickButton.addEventListener("click", function () {
+    alert(`Number copied: ${callNumberText}`);
     copyVisualInNumber = parseInt(copyVisualElement.innerText);
     copyVisualElement.innerText = copyVisualInNumber + 1;
   });
@@ -71,23 +75,23 @@ function copyVisualAndClick(copyVisualId, copyClickId) {
 
 // copy visual element id and copy button click element id as an arguments
 // copy no: 1 (national emergency card)
-copyVisualAndClick("copyField", "copy1");
+copyVisualAndClick("copyField", "copy1", "nationalEmergencyNumber");
 // copy no: 2 (police helpline card)
-copyVisualAndClick("copyField", "copy2");
+copyVisualAndClick("copyField", "copy2", "policeHelplineNumber");
 // copy no: 3 (fire service card)
-copyVisualAndClick("copyField", "copy3");
+copyVisualAndClick("copyField", "copy3", "fireServiceNumber");
 // copy no: 4 (fire service card)
-copyVisualAndClick("copyField", "copy4");
+copyVisualAndClick("copyField", "copy4", "ambulanceNumber");
 // copy no: 5 (fire service card)
-copyVisualAndClick("copyField", "copy5");
+copyVisualAndClick("copyField", "copy5", "womanChildNumber");
 // copy no: 6 (fire service card)
-copyVisualAndClick("copyField", "copy6");
+copyVisualAndClick("copyField", "copy6", "antiCorruptionNumber");
 // copy no: 7 (fire service card)
-copyVisualAndClick("copyField", "copy7");
+copyVisualAndClick("copyField", "copy7", "electricityNumber");
 // copy no: 8 (fire service card)
-copyVisualAndClick("copyField", "copy8");
+copyVisualAndClick("copyField", "copy8", "bracNumber");
 // copy no: 9 (fire service card)
-copyVisualAndClick("copyField", "copy9");
+copyVisualAndClick("copyField", "copy9", "bangladeshRailwayNumber");
 
 // all in one heart click function for using loop
 // // click event run in copy text button
