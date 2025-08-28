@@ -35,6 +35,38 @@ heartVisualAndClick("heartVisual", "heart9");
 
 //----------------------------------------------------------------------------------------------------
 
+/* call numbers click and showing "number copied" */
+function copyNumberVisual(numberCopyVisualId) {
+  // copy counter visualizing element target
+  const copyVisualElement = document.getElementById(numberCopyVisualId);
+
+  copyVisualElement.addEventListener("click", function () {
+    alert("Number Copied");
+  });
+}
+
+// number visual element id as an arguments
+// card no: 1 (national emergency card)
+copyNumberVisual("nationalEmergencyNumber");
+// card no: 2 (police helpline card)
+copyNumberVisual("policeHelplineNumber");
+// card no: 3 (fire service card)
+copyNumberVisual("fireServiceNumber");
+// card no: 4 (fire service card)
+copyNumberVisual("ambulanceNumber");
+// card no: 5 (fire service card)
+copyNumberVisual("womanChildNumber");
+// card no: 6 (fire service card)
+copyNumberVisual("antiCorruptionNumber");
+// card no: 7 (fire service card)
+copyNumberVisual("electricityNumber");
+// card no: 8 (fire service card)
+copyNumberVisual("bracNumber");
+// card no: 9 (fire service card)
+copyNumberVisual("bangladeshRailwayNumber");
+
+//----------------------------------------------------------------------------------------------------
+
 /* copy reuseable function for copy visualization element and copy buttons click */
 function copyVisualAndClick(copyVisualId, copyClickId, callNumberId) {
   // copy counter visualizing element target
