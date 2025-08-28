@@ -1,350 +1,175 @@
-/* heart counter function creation */
-// heart count and visualization element
-let heartVisual = document.getElementById("heartVisual");
+/* heart reuseable function for heart click and visualization */
+// heart "visual element" and "icon click element" target and event run
+function heartVisualAndClick(heartVisualId, heartClickId) {
+  // heart visual element target
+  const heartVisualBtn = document.getElementById(heartVisualId);
+  // heart icon click element target
+  const heartIconBtn = document.getElementById(heartClickId);
 
-// heart clickable icon select
-let heartClick = document.querySelectorAll(".heartClick");
-
-// click event run in heart icon
-for (let heart of heartClick) {
-  heart.addEventListener("click", function () {
-    // elements innerText convert to the number
-    let heartUpdate = parseInt(heartVisual.innerText);
-
-    // will increase by 1
-    heartVisual.innerText = heartUpdate + 1;
+  // heart event run
+  heartIconBtn.addEventListener("click", function () {
+    const heartVisualNumber = parseInt(heartVisualBtn.innerText);
+    heartVisualBtn.innerText = heartVisualNumber + 1;
   });
 }
 
+// heart visual element id and heart icon click element id as an arguments
+// heart no: 1 (national emergency card)
+heartVisualAndClick("heartVisual", "heart1");
+// heart no: 2 (police helpline card)
+heartVisualAndClick("heartVisual", "heart2");
+// heart no: 3 (fire service card)
+heartVisualAndClick("heartVisual", "heart3");
+// heart no: 4 (fire service card)
+heartVisualAndClick("heartVisual", "heart4");
+// heart no: 5 (fire service card)
+heartVisualAndClick("heartVisual", "heart5");
+// heart no: 6 (fire service card)
+heartVisualAndClick("heartVisual", "heart6");
+// heart no: 7 (fire service card)
+heartVisualAndClick("heartVisual", "heart7");
+// heart no: 8 (fire service card)
+heartVisualAndClick("heartVisual", "heart8");
+// heart no: 9 (fire service card)
+heartVisualAndClick("heartVisual", "heart9");
+
+// all in one heart click function for using loop
+// /* heart counter function creation */
+// // heart count and visualization element
+// let heartVisual = document.getElementById("heartVisual");
+
+// // heart clickable icon select
+// let heartClick = document.querySelectorAll(".heartClick");
+
+// // click event run in heart icon
+// for (let heart of heartClick) {
+//   heart.addEventListener("click", function () {
+//     // elements innerText convert to the number
+//     let heartUpdate = parseInt(heartVisual.innerText);
+
+//     // will increase by 1
+//     heartVisual.innerText = heartUpdate + 1;
+//   });
+// }
+
 //----------------------------------------------------------------------------------------------------
 
-/* copy activities function creation */
-// copy counter showing element target
-const copyShowingElement = document.querySelector(".copyShowingElement");
+/* copy reuseable function for copy visualization element and copy buttons click */
 
-// copy text button element target
-const copyTextBtn = document.querySelectorAll(".copyTextBtn");
+function copyVisualAndClick(copyVisualId, copyClickId) {
+  // copy counter visualizing element target
+  const copyVisualElement = document.getElementById(copyVisualId);
 
-// click event run in copy text button
-for (let copyBtn of copyTextBtn) {
-  copyBtn.addEventListener("click", function () {
-    // elements innerText convert to the number
-    const copyTextUpdate = parseInt(copyShowingElement.innerText);
-    // will increase by 1
-    copyShowingElement.innerText = copyTextUpdate + 1;
+  // copy text button element target
+  const copyClickButton = document.getElementById(copyClickId);
+
+  copyClickButton.addEventListener("click", function () {
+    copyVisualInNumber = parseInt(copyVisualElement.innerText);
+    copyVisualElement.innerText = copyVisualInNumber + 1;
   });
 }
 
-//----------------------------------------------------------------------------------------------------
+// copy visual element id and copy button click element id as an arguments
+// copy no: 1 (national emergency card)
+copyVisualAndClick("copyField", "copy1");
+// copy no: 2 (police helpline card)
+copyVisualAndClick("copyField", "copy2");
+// copy no: 3 (fire service card)
+copyVisualAndClick("copyField", "copy3");
+// copy no: 4 (fire service card)
+copyVisualAndClick("copyField", "copy4");
+// copy no: 5 (fire service card)
+copyVisualAndClick("copyField", "copy5");
+// copy no: 6 (fire service card)
+copyVisualAndClick("copyField", "copy6");
+// copy no: 7 (fire service card)
+copyVisualAndClick("copyField", "copy7");
+// copy no: 8 (fire service card)
+copyVisualAndClick("copyField", "copy8");
+// copy no: 9 (fire service card)
+copyVisualAndClick("copyField", "copy9");
 
-/* national emergency call function creation */
-// national emergency events
-document
-  .getElementById("nationalEmergencyCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
+// all in one heart click function for using loop
+// // click event run in copy text button
+// for (let copyBtn of copyTextBtn) {
+//   copyBtn.addEventListener("click", function () {
+//     // elements innerText convert to the number
+//     const copyTextUpdate = parseInt(copyShowingElement.innerText);
+//     // will increase by 1
+//     copyShowingElement.innerText = copyTextUpdate + 1;
+//   });
+// }
 
-    // national emergency subtitle target
-    let nationalEmergencySubTitle = document.getElementById(
-      "nationalEmergencySubTitle"
-    );
-    // national emergency numbers target
-    let nationalEmergencyNumber = document.getElementById(
-      "nationalEmergencyNumber"
-    );
+// /* copy activities function creation */
+// // copy counter showing element target
+// const copyShowingElement = document.querySelector(".copyShowingElement");
 
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
+// // copy text button element target
+// const copyTextBtn = document.querySelectorAll(".copyTextBtn");
 
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
-
-    // 2nd, title and number alert
-    const elementTitle = nationalEmergencySubTitle.innerText;
-    const callNumber = nationalEmergencyNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
-
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
-  });
+// // click event run in copy text button
+// for (let copyBtn of copyTextBtn) {
+//   copyBtn.addEventListener("click", function () {
+//     // elements innerText convert to the number
+//     const copyTextUpdate = parseInt(copyShowingElement.innerText);
+//     // will increase by 1
+//     copyShowingElement.innerText = copyTextUpdate + 1;
+//   });
+// }
 
 //----------------------------------------------------------------------------------------------------
 
-/* police helpline call function creation */
-// police helpline events
-document
-  .getElementById("policeHelplineCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
+// coin decrease, card subtitle, card number, added the new history, and clear history activities reuseable function
 
-    // police helpline subtitle target
-    let policeHelplineSubTitle = document.getElementById(
-      "policeHelplineSubTitle"
-    );
-    // police helpline numbers target
-    let policeHelplineNumber = document.getElementById("policeHelplineNumber");
+// home sections coin visualize element target
+let coinField = document.getElementById("coinField");
+let coinInNumber = parseInt(coinField.innerText);
 
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
+// reuseable function
+function allBtnCoinUseHistoryAdded(
+  callBtn,
+  cardSubTitleId,
+  callingNumberId,
+  newHistoryAddedFieldId,
+  clearHistoryId
+) {
+  // cards subtitle target
+  let cardSubTitle = document.getElementById(cardSubTitleId);
+  // cards numbers target
+  let callingNumber = document.getElementById(callingNumberId);
 
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
+  // cards call button target
+  const callBtnElement = document.getElementById(callBtn);
 
-    // 2nd, title and number alert
-    const elementTitle = policeHelplineSubTitle.innerText;
-    const callNumber = policeHelplineNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
-
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
-  });
-
-//----------------------------------------------------------------------------------------------------
-
-/* fire service call function creation */
-// fire service events
-document
-  .getElementById("fireServiceCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
-
-    // fire service subtitle target
-    let fireServiceSubTitle = document.getElementById("fireServiceSubTitle");
-    // fire service numbers target
-    let fireServiceNumber = document.getElementById("fireServiceNumber");
-
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
-
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
-
-    // 2nd, title and number alert
-    const elementTitle = fireServiceSubTitle.innerText;
-    const callNumber = fireServiceNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
-
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
-  });
-
-//----------------------------------------------------------------------------------------------------
-
-/* ambulance call function creation */
-// ambulance events
-document.getElementById("ambulanceCall").addEventListener("click", function () {
-  // home sections coin field target
-  let coinField = document.getElementById("coinField");
-  let coinElementText = coinField.innerText;
-  let coinInNumber = parseInt(coinElementText);
-
-  // ambulance subtitle target
-  let ambulanceSubTitle = document.getElementById("ambulanceSubTitle");
-  // ambulance numbers target
-  let ambulanceNumber = document.getElementById("ambulanceNumber");
-
-  // javascript locale time showing target
+  // javascript local time showing target
   let nowTime = new Date();
   let localTime = nowTime.toLocaleTimeString();
 
   // showing history elements target
-  const newHistory = document.getElementById("newHistory");
-  // 1st, coin check
-  if (coinInNumber >= 20) {
-    coinInNumber -= 20;
-    coinField.innerText = coinInNumber;
-  } else if (coinInNumber < 20) {
-    alert("Sorry, You have not enough coin!");
-    return;
-  }
+  const newHistoryAddedFieldElement = document.getElementById(
+    newHistoryAddedFieldId
+  );
 
-  // 2nd, title and number alert
-  const elementTitle = ambulanceSubTitle.innerText;
-  const callNumber = ambulanceNumber.innerText;
-  alert(`${elementTitle} ${callNumber}`);
+  // history clear button target
+  const clearButton = document.getElementById(clearHistoryId);
 
-  // 3rd, create element
-  const newDiv = document.createElement("div");
-  newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-  newHistory.appendChild(newDiv);
-
-  // history clear event
-  const clearButton = document.getElementById("clearBtn");
-  clearBtn.addEventListener("click", function () {
-    newDiv.innerHTML = "";
-  });
-});
-
-//----------------------------------------------------------------------------------------------------
-
-/* woman child helpline function creation */
-// woman child helpline events
-document
-  .getElementById("womanChildCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
-
-    // woman child helpline subtitle target
-    let womanChildSubTitle = document.getElementById("womanChildSubTitle");
-    // woman child helpline numbers target
-    let womanChildNumber = document.getElementById("womanChildNumber");
-
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
-
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
+  // call button click event run
+  callBtnElement.addEventListener("click", function () {
+    // (1st), coin check and calculating
     if (coinInNumber >= 20) {
       coinInNumber -= 20;
       coinField.innerText = coinInNumber;
     } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
+      alert("Sorry, You do not have enough coin!");
       return;
     }
 
-    // 2nd, title and number alert
-    const elementTitle = womanChildSubTitle.innerText;
-    const callNumber = womanChildNumber.innerText;
+    // (2nd), title and number alert
+    const elementTitle = cardSubTitle.innerText;
+    const callNumber = callingNumber.innerText;
     alert(`${elementTitle} ${callNumber}`);
 
-    // 3rd, create element
+    // (3rd), create element
     const newDiv = document.createElement("div");
     newDiv.innerHTML = `
         <div
@@ -365,283 +190,155 @@ document
             </div>
         </div>
   `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
+    newHistoryAddedFieldElement.appendChild(newDiv);
   });
 
-//----------------------------------------------------------------------------------------------------
-
-/* anti corruption helpline function creation */
-// anti corruption helpline events
-document
-  .getElementById("antiCorruptionCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
-
-    // anti corruption helpline subtitle target
-    let antiCorruptionSubTitle = document.getElementById(
-      "antiCorruptionSubTitle"
-    );
-    // anti corruption helpline numbers target
-    let antiCorruptionNumber = document.getElementById("antiCorruptionNumber");
-
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
-
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
-
-    // 2nd, title and number alert
-    const elementTitle = antiCorruptionSubTitle.innerText;
-    const callNumber = antiCorruptionNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
-
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
+  // (4th), history clear button event
+  clearButton.addEventListener("click", function () {
+    newHistoryAddedFieldElement.innerHTML = "";
   });
+}
 
-//----------------------------------------------------------------------------------------------------
+// coin field id, card subtitle id, cards number id, activities add in new history sections id, history clear button id pass in to the reuseable function as an arguments
 
-/* electricity helpline function creation */
-// electricity helpline events
-document
-  .getElementById("electricityCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
+// card-1, national emergency cards
+allBtnCoinUseHistoryAdded(
+  "nationalEmergencyCall",
+  "nationalEmergencySubTitle",
+  "nationalEmergencyNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-2, police helpline cards
+allBtnCoinUseHistoryAdded(
+  "policeHelplineCall",
+  "policeHelplineSubTitle",
+  "policeHelplineNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-3, fire service cards
+allBtnCoinUseHistoryAdded(
+  "fireServiceCall",
+  "fireServiceSubTitle",
+  "fireServiceNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-4, ambulance service cards
+allBtnCoinUseHistoryAdded(
+  "ambulanceCall",
+  "ambulanceSubTitle",
+  "ambulanceNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-5, woman & child helpline cards
+allBtnCoinUseHistoryAdded(
+  "womanChildCall",
+  "womanChildSubTitle",
+  "womanChildNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-6, anti corruption helpline cards
+allBtnCoinUseHistoryAdded(
+  "antiCorruptionCall",
+  "antiCorruptionSubTitle",
+  "antiCorruptionNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-7, electricity helpline cards
+allBtnCoinUseHistoryAdded(
+  "electricityCall",
+  "electricitySubTitle",
+  "electricityNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-8, brac helpline cards
+allBtnCoinUseHistoryAdded(
+  "bracCall",
+  "bracSubTitle",
+  "bracNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
+// card-9, bangladesh railway helpline cards
+allBtnCoinUseHistoryAdded(
+  "bangladeshRailwayCall",
+  "bangladeshRailwaySubTitle",
+  "bangladeshRailwayNumber",
+  "newHistoryAddedField",
+  "clearBtn"
+);
 
-    // electricity helpline subtitle target
-    let electricitySubTitle = document.getElementById("electricitySubTitle");
-    // electricity helpline numbers target
-    let electricityNumber = document.getElementById("electricityNumber");
+// /* national emergency call function creation */
+// // national emergency events
+// document
+//   .getElementById("nationalEmergencyCall")
+//   .addEventListener("click", function () {
+//     // home sections coin field target
+//     let coinField = document.getElementById("coinField");
+//     let coinElementText = coinField.innerText;
+//     let coinInNumber = parseInt(coinElementText);
 
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
+//     // national emergency subtitle target
+//     let nationalEmergencySubTitle = document.getElementById(
+//       "nationalEmergencySubTitle"
+//     );
+//     // national emergency numbers target
+//     let nationalEmergencyNumber = document.getElementById(
+//       "nationalEmergencyNumber"
+//     );
 
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
+//     // javascript locale time showing target
+//     let nowTime = new Date();
+//     let localTime = nowTime.toLocaleTimeString();
 
-    // 2nd, title and number alert
-    const elementTitle = electricitySubTitle.innerText;
-    const callNumber = electricityNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
+//     // showing history elements target
+//     const newHistory = document.getElementById("newHistory");
+//     // 1st, coin check
+//     if (coinInNumber >= 20) {
+//       coinInNumber -= 20;
+//       coinField.innerText = coinInNumber;
+//     } else if (coinInNumber < 20) {
+//       alert("Sorry, You have not enough coin!");
+//       return;
+//     }
 
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
+//     // 2nd, title and number alert
+//     const elementTitle = nationalEmergencySubTitle.innerText;
+//     const callNumber = nationalEmergencyNumber.innerText;
+//     alert(`${elementTitle} ${callNumber}`);
 
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
+//     // 3rd, create element
+//     const newDiv = document.createElement("div");
+//     newDiv.innerHTML = `
+//         <div
+//             class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
+//           >
+//             <div class="flex flex-col">
+//               <!-- card title -->
+//               <p class="text-sm font-semibold hindMadurai gap-1">
+//                 ${elementTitle}
+//               </p>
+//               <!-- phone number -->
+//               <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
+//             </div>
 
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
-  });
+//             <div>
+//               <!-- calling time -->
+//               <p class="hindMadurai text-xs font-medium">${localTime}</p>
+//             </div>
+//         </div>
+//   `;
+//     newHistory.appendChild(newDiv);
 
-//----------------------------------------------------------------------------------------------------
-
-/* brac helpline function creation */
-// brac helpline events
-document.getElementById("bracCall").addEventListener("click", function () {
-  // home sections coin field target
-  let coinField = document.getElementById("coinField");
-  let coinElementText = coinField.innerText;
-  let coinInNumber = parseInt(coinElementText);
-
-  // brac helpline subtitle target
-  let bracSubTitle = document.getElementById("bracSubTitle");
-  // brac helpline numbers target
-  let bracNumber = document.getElementById("bracNumber");
-
-  // javascript locale time showing target
-  let nowTime = new Date();
-  let localTime = nowTime.toLocaleTimeString();
-
-  // showing history elements target
-  const newHistory = document.getElementById("newHistory");
-  // 1st, coin check
-  if (coinInNumber >= 20) {
-    coinInNumber -= 20;
-    coinField.innerText = coinInNumber;
-  } else if (coinInNumber < 20) {
-    alert("Sorry, You have not enough coin!");
-    return;
-  }
-
-  // 2nd, title and number alert
-  const elementTitle = bracSubTitle.innerText;
-  const callNumber = bracNumber.innerText;
-  alert(`${elementTitle} ${callNumber}`);
-
-  // 3rd, create element
-  const newDiv = document.createElement("div");
-  newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-  newHistory.appendChild(newDiv);
-
-  // history clear event
-  const clearButton = document.getElementById("clearBtn");
-  clearBtn.addEventListener("click", function () {
-    newDiv.innerHTML = "";
-  });
-});
-
-//----------------------------------------------------------------------------------------------------
-
-/* bangladesh railway helpline function creation */
-// bangladesh railway helpline events
-document
-  .getElementById("bangladeshRailwayCall")
-  .addEventListener("click", function () {
-    // home sections coin field target
-    let coinField = document.getElementById("coinField");
-    let coinElementText = coinField.innerText;
-    let coinInNumber = parseInt(coinElementText);
-
-    // bangladesh railway helpline subtitle target
-    let bangladeshRailwaySubTitle = document.getElementById(
-      "bangladeshRailwaySubTitle"
-    );
-    // bangladesh railway helpline numbers target
-    let bangladeshRailwayNumber = document.getElementById(
-      "bangladeshRailwayNumber"
-    );
-
-    // javascript locale time showing target
-    let nowTime = new Date();
-    let localTime = nowTime.toLocaleTimeString();
-
-    // showing history elements target
-    const newHistory = document.getElementById("newHistory");
-    // 1st, coin check
-    if (coinInNumber >= 20) {
-      coinInNumber -= 20;
-      coinField.innerText = coinInNumber;
-    } else if (coinInNumber < 20) {
-      alert("Sorry, You have not enough coin!");
-      return;
-    }
-
-    // 2nd, title and number alert
-    const elementTitle = bangladeshRailwaySubTitle.innerText;
-    const callNumber = bangladeshRailwayNumber.innerText;
-    alert(`${elementTitle} ${callNumber}`);
-
-    // 3rd, create element
-    const newDiv = document.createElement("div");
-    newDiv.innerHTML = `
-        <div
-            class="flex items-center justify-between p-2 gap-2 bg-[#FAFAFA] rounded-lg"
-          >
-            <div class="flex flex-col">
-              <!-- card title -->
-              <p class="text-sm font-semibold hindMadurai gap-1">
-                ${elementTitle}
-              </p>
-              <!-- phone number -->
-              <span class="text-sm roboto font-normal text-[#5C5C5C]">${callNumber}</span>
-            </div>
-
-            <div>
-              <!-- calling time -->
-              <p class="hindMadurai text-xs font-medium">${localTime}</p>
-            </div>
-        </div>
-  `;
-    newHistory.appendChild(newDiv);
-
-    // history clear event
-    const clearButton = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", function () {
-      newDiv.innerHTML = "";
-    });
-  });
+//     // history clear event
+//     const clearButton = document.getElementById("clearBtn");
+//     clearBtn.addEventListener("click", function () {
+//       newDiv.innerHTML = "";
+//     });
+//   });
