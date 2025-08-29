@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="parentUl"
+      style="
+        width: 50vh;
+        height: 20vh;
+        background-color: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <button id="childBtn">Button</button>
+    </div>
+
+    <script>
+      const parentElement = document.getElementById("parentUl");
+      parentElement.addEventListener("click", function () {
+        alert("Parent Click");
+      });
+
+      const childElement = document.getElementById("childBtn");
+      childElement.addEventListener("click", function (event) {
+        event.stopPropagation();
+        alert("Child Click");
+      });
+    </script>
+  </body>
+</html>

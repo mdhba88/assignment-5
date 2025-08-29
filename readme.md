@@ -1,165 +1,153 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
+Question: What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
-### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
+Answer to the question:
+=> document.getElementById("idName")
+১। এটি যে এলিমেন্ট এর ভিতরে id name দেওয়া হয় সেই element কে শো করে। আর যদি একই নাম একাধিক লিমিমেন্ট এর ভেতর দেওয়া হয় সেক্ষেত্রে প্রথম এলিমেন্ট কে ফেরত দিবে।
 
-### 📅 No Deadline For 50 marks
+উদাহরণ:
+let anyVar = document.getElementById("myId");
 
-### 📅 Deadline For 30 marks: Any time after 29th August.
+২। যখন এখানে আইডি নাম দেওয়া হবে কিন্তু সেটা যদি এলিমেন্টের ভিতরে খুঁজে না পাই সে ক্ষেত্রে null রিটার্ন করবে।
 
----
+=> document.getElementsByClassName("className")
+১। এটি যে এলিমেন্ট এর ভিতরে class name দেওয়া হয় সেই element কেই শো করবে। আর যদি একই নাম একাধিক এলিমেন্টে দেওয়া হয় সেক্ষেত্রে এই নাম যতগুলো এলিমেন্ট এর ভিতরে খুঁজে পাবে সবগুলো এলিমেন্টকেই শো করবে। সেক্ষেত্রে আলাদা কোন এলিমেন্ট কে ধরতে চাইলে ইনডেক্স নাম্বার ব্যবহার করতে হবে।
 
-## ✅ Main Requirements (50 Marks)
+উদাহরণ:
+let anyVar = document.getElementsByClassName("myClass");
+console.log(items); // সব এলিমেন্টকে ফেরত দিবে। (যদি একাধিক এলিমেন্টের ভিতরে একই ক্লাস নাম দেওয়া হয়)
+console.log(items[0]); // প্রথম element কে ফেরত দিবে। (যদি একাধিক এলিমেন্টের ভিতরে একই ক্লাস নাম দেওয়া হয়)
 
-### 1. Navbar
+২। যখন এখানে আইডি নাম দেওয়া হবে কিন্তু সেটা যদি এলিমেন্টের ভিতরে খুঁজে না পাই সে ক্ষেত্রে একটা খালি array রিটার্ন করবে।
 
-- **Website name & logo** on the left as Figma
-- **Heart icon, coin count (default-100), and Copy Count** on the right as Figma
+=> document.querySelector("selector")
+১। এখানে সিএসএস সিলেক্টর ব্যবহার করে এলিমেন্টকে ধরা হয়, যেমন (#id, .class, tag, attribute ইত্যাদি)। সিএসএস সিলেক্টরের ভিতরে যদি একাধিক আইটেম থাকে সেক্ষেত্রে এটা শুধুমাত্র প্রথম element কে রিটার্ন করে।
 
----
+উদাহরণ:
+let firstItem = document.querySelector(".list-item");
 
-### 2. Hero Section
+২। যদি element না পাওয়া যায় তাহলে null রিটার্ন দিবে।
 
-- **Background Gradient** in the Whole Section
-- **A Relevant Logo** at the top-center
-- **Section Title** in the center
-- **A Relevant Slogan** in the bottom Center
+=> document.querySelectorAll("selector")
+১। এখানে সিএসএস সিলেক্টর ব্যবহার করে এলিমেন্টকে ধরা হয়, যেমন (#id, .class, tag, attribute ইত্যাদি)। সিএসএস সিলেক্টরের ভিতরে যদি একাধিক আইটেম থাকে সেক্ষেত্রে এটা NodeList আকারে ফেরত দেয়। সেক্ষেত্রে আলাদা কোন এলিমেন্ট কে ধরতে চাইলে ইনডেক্স নাম্বার ব্যবহার করতে হবে।
 
----
+উদাহরণ:
+let allItems = document.querySelectorAll(".list-item");
+console.log(allItems);
 
-### 2. Main Section
+২। যদি element না পাওয়া যায় তাহলে খালি নোডলিস্ট রিটার্ন দিবে।
 
-This Section will have layout as figma
+Question: How do you create and insert a new element into the DOM?
 
-<table border=1 width="100%" cellpadding="50">
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
- </tr>
- <tr>
-    <td colspan=9 >Card Section</td>
-    <td colspan=3>History Section</td>
- </tr>
-</table>
+Answer to the question:
+১️। DOM(Document Object Model) এ নতুন element তৈরি করতে document.createElement("tagName") ব্যবহার করা হয়।
 
-### Emergency Hotline Section
+উদাহরণ:
+let newDiv = document.createElement("div");
 
-- **Show Minimum 6 cards**. Each card will contain:
-  - Icon or Image
-  - Relevant Name
-  - Relevant Name in English
-  - Hotline number for calling
-  - Category Badge
-  - 💗 icon at left
-  - **2 buttons** at the bottom: Copy and Call with icons as Figma
+২️। DOM(Document Object Model) এ element insert করতে appendChild() ব্যবহার করা হয়।
 
-### History Section
+উদাহরণ:
+let container = document.getElementById("container");
+container.appendChild(newDiv); // container এর শেষে যোগ হবে।
 
-- **A white Background** in the whole section
-- **History Title with icon** at the top-left as Figma
-- **Clear History Button** at the top-right as Figma
+Question: What is Event Bubbling and how does it work?
 
----
+Answer to the question:
+Event Bubbling: Event Bubbling হলো একটা প্রক্রিয়া যেখানে কোনো child element-এ event চালালে, সেটা প্রথমে সেই element-এ কাজ করবে, তারপর তার parent element এ event দেওয়া থাকলে ধাপে ধাপে সেই parent element এ কাজ করবে। তারপর তার grandparent element এ event দেওয়া থাকলে ধাপে ধাপে সেই grandparent element এ কাজ করবে। এভাবে event নিচ থেকে ওপরের দিকে উঠতে থাকে বা উপরের দিকে ছড়ায়।
 
-### 3. Responsiveness (5 Marks)
+বাবল যেভাবে কাজ করে:
+উদাহরণ:
+HTML কোড:
 
-- Website should be fully **responsive for mobile devices** (implementation up to you)
+<body>
+  <div id="parent">
+    <button id="child">Click Me</button>
+  </div>
+</body>
 
----
+Javascript কোড:
+document.body.addEventListener("click", function () {
+alert("Body clicked!");
+});
 
-## Functionalities
+document.getElementById("parent").addEventListener("click", function() {
+alert("Parent div clicked!");
+});
 
-### 4. Heart Icons
+document.getElementById("child").addEventListener("click", function() {
+alert("Child button clicked!");
+});
 
-- Clicking on the 💗 **heart icon** of any card will increase the count in the Navbar
+এখানে যখন button এ ক্লিক করা হবে তখন প্রথমে button (child) এ event চলবে। তারপর event বাবল হয়ে parent div এ যাবে এবং তার event চলবে। তারপর আবার বাবল হয়ে body তে যাবে এবং সেটার event চলবে। ফলে ৩টা alert একটার পর একটা দেখাবে। আবার যদি ইভেন্ট শুধুমাত্র বাটনে থাকে প্যারেন্ট ডিভে তার প্যারেন্ট বডিতে না থাকে সে ক্ষেত্রে বাবল হবে ঠিকই কিন্তু কোন প্রতিক্রিয়া দেখাবে না। অর্থাৎ নিচ থেকে উপরের দিকে বাবল হয়ে যাবে কিন্তু কোন প্রতিক্রিয়া দেখাবে না।
 
----
+Question: What is Event Delegation in JavaScript? Why is it useful?
 
-### 5. Call Buttons
+Answer to the question:
+Event Delegation: Event Delegation হলো একটা parent element এ event বসিয়ে তার ভিতরে থাকা child element এর উপরে ওই একই ইভেন্ট কাজ করানোর জন্য ব্যবহার করি। অর্থাৎ যেখানে সরাসরি প্রতিটা child element এ আলাদা event না বসিয়ে, শুধু parent element এ event বসিয়ে এর মাধ্যমে সব child এও একই event দিয়ে নিয়ন্ত্রণ করে।
 
-- On clicking a card's **Call Button**, following actions will happen:
-  - Show an **alert** with a message including the service name and number
-  - Each call will **cut 20 coins**. Reduce Coin after each click.
-  - If coins are less than 20, show a relevant alert and terminate the process.
-  - Add this service into the **Call History section** with:
-    - Service name
-    - Service number
+Event Delegation কাজ করে: যখন কোনো child element-এ event ঘটে, সেটা parent পর্যন্ত বাবল হয়ে যায়।
+তাহলে parent থেকে চেক করলেই বোঝা যায় কোন child এ event ঘটেছে।
 
----
+উদাহরণ:
 
-### 5. Call History Section
+HTML code:
 
-- Show all called services with name & number. This will empty initially. when call button clicked it will filled dynamically.
-- A **Clear History button** on the right
-- Clicking this button will remove all data from call history
+<ul id="menu">
+  <li>Home</li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
 
----
+javascript code:
+const menuParent = document.getElementById("menu");
 
-## Create Readme
+menuParent.addEventListener("click", function () {
+menuParent.style.backgroundColor = "orange";
+}
 
-You have to create a `Readme.md` file. and write down following questions. Dont Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
+Event Delegation উপকারীতাঃ
+১। কোড ছোট হয় এবং পারফরম্যান্স ভালো হয়: প্রতিটা child element এ আলাদা event না বসিয়ে parent element এ একটা event বসিয়ে child element এ একই event রান করানো যায়। যে কারণেই কোড ছোট হয় পারফরম্যান্স ভালো থাকে।
+২। Dynamic elements handle করা যায়: পরে যদি নতুন child (যেমন নতুন li) DOM এ যোগ করা হয়, তার মধ্যেও ইভেন কাজ করানো যায়।
+৩। Code clean হয় এবং মেন্টেন করার সহজ হয়: অনেক ছোট ও maintainable কোড লেখা যায়।
 
-### 6. Answer the following questions clearly:
+What is the difference between preventDefault() and stopPropagation() methods?
 
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+Answer to the question:-
+=> event.preventDefault()
+এই মেথডটি কোন অটোমেটিকভাবে সেট হয়ে থাকা কাজকে বন্ধ করার জন্য ব্যবহার হয়।
 
----
+উদাহরণ:
+<a href="https://google.com" id="googleLink">Go to Google</a>
 
-## 🧪 Challenges Part (10 Marks)
+const goLink = document.getElementById("googleLink");
 
-- On clicking the **Copy button**, show an alert and **increase the copy count** (3 Marks)
+goLink.addEventListener("click", function (e) {
+e.preventDefault();
+});
 
-- Hotline number will be **copied on click** so it can be pasted anywhere (4 Marks)
+এখানে সাধারণত লিংকে ক্লিক করলে গুগলে চলে যেত।
+কিন্তু preventDefault() দেওয়ায় ডিফল্ট কাজ অর্থাৎ google পেজে যাওয়া বন্ধ হয়ে যাবে।
 
-💡Hint: You can ask for Help from `ChatGPT` Mamma . Just copy the below prompt , generate answer. use it with your own way.
+=> event.stopPropagation()
+এই মেথডটি event bubbling/capturing বন্ধ করার জন্য ব্যবহার করা হয়। মানে কোন চাইল্ড এলিমেন্টে ইভেন্ট সেট করলে সেটা আর parent element এর দিকে যাবে না।
 
-```bash
-I have a card with some text and a button inside it. I want that when a user clicks the button, some specific text from the card is copied to the clipboard using JavaScript. Please provide the code and explain it step by step.
-```
+উদাহরণ:
+HTML code:
 
-- After clicking on the **Call button**, the **exact time of the call** will be shown in the Call History section (3 Marks)
+<div id="parentUl" style="width: 50vh; height: 20vh; background-color: green; display: flex; align-items: center; justify-content: center;">
+  <button id="childBtn">Button</button>
+</div>
 
-💡Hint: Search Google with that below question
+javascript code:
+const parentElement = document.getElementById("parentUl");
+parentElement.addEventListener("click", function () {
+alert("Parent Click");
+});
 
-```bash
-How to get current local time in js
-```
+const childElement = document.getElementById("childBtn");
+childElement.addEventListener("click", function (event) {
+event.stopPropagation(); // event propagation method applying
+alert("Child Click");
+});
 
----
-
-## ⚙️ Technology Stack
-
-- HTML
-- CSS ( Vanilla , Tailwind CSS , DaisyUI , Others - wheatever you like )
-- JavaScript ( Vanilla only. No Framework / Library Allowed )
-
----
-
-## 📌 Rules
-
-- ✅ Minimum **5 meaningful commits** required
-- ❌ No Lorem Ipsum or dummy placeholder text. Use **relevant content only**
-
----
-
-## 🔗 What to Submit
-
-- 📂 **GitHub Repository**
-- 🌐 **Live Link**
-
----
-
-# Let's Code and Achieve your Dream 🎯
+এখানে button এ ক্লিক করলে শুধু "Child clicked!" alert আসবে কিন্তু Parent এর alert আর কাজ করবে না, কারণ বাবলিং বন্ধ হয়ে গেছে।
